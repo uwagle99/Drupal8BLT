@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains tourist.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tourist_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the tourist module.
+    case 'help.page.tourist':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Tourism module for PR') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tourist_theme() {
+  return [
+    'tourist' => [
+      'render element' => 'children',
+    ],
+  ];
+}
